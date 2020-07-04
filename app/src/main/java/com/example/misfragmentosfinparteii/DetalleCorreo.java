@@ -14,8 +14,8 @@ public class DetalleCorreo extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_correo);
         txtdetalle = findViewById(R.id.TxtDetalle);
         txtdetalle.setText("De: "+ getIntent().getExtras().getString("de")+
-                "Asunto: "+ getIntent().getExtras().getString("asunto")+
-                "Contenido: "+ getIntent().getExtras().getString("texto"));
+                " Asunto: "+ getIntent().getExtras().getString("asunto")+
+                " Contenido: "+ getIntent().getExtras().getString("texto"));
 
     }
 }
