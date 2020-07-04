@@ -10,18 +10,23 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterCorreo  extends RecyclerView.Adapter<AdapterCorreo.ViewHolder> {
-    private LayoutInflater inflador; Correo[] datos; Context micontext;
+    private LayoutInflater inflador;
+    Correo[] datos;
+    Context micontext;
+
     public AdapterCorreo(Context context, Correo[] datos) {
         this.datos= datos;
         micontext=context;
         inflador = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflador.inflate(R.layout.list_item_correo, parent, false);
         return new ViewHolder(v);
     }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, final int i) {
         holder.titulo.setText(datos[i].getDe());
@@ -33,7 +38,7 @@ public class AdapterCorreo  extends RecyclerView.Adapter<AdapterCorreo.ViewHolde
                 intent.putExtra("texto",datos[i].getTexto());
                 intent.putExtra("de",datos[i].getDe());
                 intent.putExtra("asunto",datos[i].getAsunto());
-//micontext.startActivity(intent);
+                micontext.startActivity(intent);
             }
         });
     }
