@@ -38,7 +38,11 @@ public class AdapterCorreoFragment extends RecyclerView.Adapter<AdapterCorreoFra
                 intent.putExtra("texto",datos[i].getTexto());
                 intent.putExtra("de",datos[i].getDe());
                 intent.putExtra("asunto",datos[i].getAsunto());
-                micontext.startActivity(intent);
+                try {
+                    ((MainFragmentCorreo) micontext).mostrarDetalle(datos[i].getTexto());
+                } catch (Exception e){
+                    micontext.startActivity(intent);
+                }
             }
         });
     }
